@@ -1,0 +1,65 @@
+#n se va iterando
+import math
+
+Ni =[]
+def numerosN(n):
+    for i in range(0, n):
+        Ni.append(i + 1)
+    print(f"valorss de N son {Ni}")
+
+
+n = 1
+numerosN(n)
+
+
+
+
+
+
+#a es el limite inferior de la integral
+a=0
+#b es el limite superior de la integral
+b=3
+
+
+
+deltaX =(b - a)/n
+print( "es el valor de deltax ", deltaX ,"\n")
+x0 = a
+valor = []
+#formulas
+def formula(x):
+    f = 5+(3*math.cos(x))
+    return f
+xIterada = [x0]
+def equis(n):
+
+    xx=0
+    for i in range(1, n+1):
+
+        xIterada.append((a+deltaX*i).__round__(4))
+        print("valor de x" , i  ," = ",xIterada[i])
+print("valor x0 = ",xIterada[0])
+equis(n)
+fxN = []
+def eseFormula():
+
+    for i in range (0,n+1):
+        fxN.append(formula(xIterada[i]).__round__(4))
+        print("respuesta fx",i," es ",fxN[i])
+print("\n")
+eseFormula()
+def resolucion(n):
+    suma = 0
+    for i in range (1,n):
+
+        RESULT = 2*fxN[i]
+        print("resultado 2x",fxN[i], " es ", RESULT)
+
+        suma+=RESULT
+    print ("\n valor deltax / 2 = ", deltaX/2)
+    print("valor solo de fx0 +2fx1 + 2fx2... fxn = ", (fxN[0] + suma+ fxN[-1]) )
+    print("solo sumas sin extremos", suma)
+    print("solucion de S = ",(deltaX/2)*(fxN[0] + suma+ fxN[-1]))
+
+resolucion(n)
